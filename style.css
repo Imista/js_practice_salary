@@ -1,0 +1,28 @@
+/*Body*/
+body{
+    /*Box*/
+    margin: 0;
+    padding: 0;
+    /*Text*/
+    font-family: 'Mulish', sans-serif;
+}
+/*Variables*/
+:root{
+    /*Colors*/
+
+    /*Font*/
+    --sm: 12px;
+    --md: 16px;
+    --bg: 20px;
+}
+/*Header*/
+
+/*End Header*/
+
+/*Main*/
+
+/*End Main*/
+
+/*Footer*/
+
+/*End Footer*/
