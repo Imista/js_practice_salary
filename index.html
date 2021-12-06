@@ -16,7 +16,37 @@
 
     </header>
     <main>
+        <div class="data">
+            <div class="data_mainData">
 
+                <form class="data_mainData_form">
+                    <input type="number" class="data_mainData_form_hours" placeholder="$$$ per hour">
+                    <input type="number" class="data_mainData_form_minHours" placeholder="Hours quota">
+                    <input type="number" class="data_mainData_form_bonus" placeholder="Bonus per extra hours (Optional)">
+                    <button type="button">Calculate</button>
+                </form>
+
+            </div>
+            <div class="data_workers">
+                <form >
+                    <h1>Worker</h1>
+                    <input type="text" class="data_workers_form_name" placeholder="Enter worker name:">
+                    <input type="number" class="data_workers_form_hours" placeholder="Worked hours">
+                    <select class="data_workers_form_sex" id="">
+                        <option >Sex</option>
+                        <option >Male</option>
+                        <option >Female</option>
+                        <option >Other</option>
+                    </select>
+                </form>
+            </div>
+        </div>    
+        <div class="result">
+            <p class="result_total"></p>
+            <p class="result_averange"></p>
+            <p class="result_top10"></p>
+            <p class="result_noQuota"></p>
+        </div>
     </main>
     <footer>
 
