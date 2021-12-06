@@ -1,1 +1,1 @@
-# js_pratice_salary
+# js_practice_salary
