@@ -1,16 +1,37 @@
+//Helpers
 const workers = [];
 const sueldo = 200;
 const minHours = 40;
 const bonus = 50;
 
-//Function
-const totalToPay = (list,minHours,salary,bonus) => {
-    //Hours
+function obtainHours(list){
     const hours = list.map(
         (element) => (
            element.hours
         )
     );
+
+    return hours;
+}
+
+const calculateAverage = x => (x.reduce((x,y) => x+y))/x.length;
+
+//Function
+function totalToPay(list,minHours,salary,bonus){
+    //Functions
+    const sumHours= (acum,hour) => {
+        const pay = hour*salary;
+
+        return pay + acum;
+    }
+    const sumHoursBonus = (acum,hour) => {
+        const pay = (hour - minHours)*bonus;
+
+        return pay + acum;
+    }
+
+    //Hours
+    const hours = obtainHours(list);
     const bonusHours = hours.filter(
         (element) => (
             (element > minHours)
@@ -18,20 +39,9 @@ const totalToPay = (list,minHours,salary,bonus) => {
     );
     
     //Pay
-    const toPay = hours.reduce(
-        (acum,hour) => {
-            const pay = hour*salary;
+    const toPay = hours.reduce(sumHours,0);
 
-            return pay + acum;
-        }
-    ,0);
-    const toPayBonus = bonusHours.reduce(
-        (acum,hour) => {
-            const pay = (hour - minHours)*bonus;
-
-            return pay + acum;
-        }
-    ,0);
+    const toPayBonus = bonusHours.reduce(sumHoursBonus,0);
 
     console.log(
         hours,
@@ -44,6 +54,12 @@ const totalToPay = (list,minHours,salary,bonus) => {
 
     //Return
     return total;
+}
+
+function averangeHours(list){
+    const hours =  obtainHours(list);
+
+    return calculateAverage(hours);
 }
 
 //Example

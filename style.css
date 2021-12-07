@@ -38,6 +38,8 @@ main{
     border: 1px solid black;
     border-radius: 8px;
     padding: 8px;
+    /*Text*/
+    font-size: var(--sm);
 }
 .data{
     /*Display*/
@@ -48,6 +50,7 @@ main{
     padding-bottom: 60px;
     border-bottom: 1px solid black;
 }
+/*Main data*/
 .data_mainData{
     /*Display*/
     display: flex;
