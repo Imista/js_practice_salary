@@ -15,6 +15,8 @@ function obtainHours(list){
 }
 
 const calculateAverage = x => (x.reduce((x,y) => x+y))/x.length;
+const order = (x,y) => (x.hours-y.hours);
+
 
 //Function
 function totalToPay(list,minHours,salary,bonus){
@@ -60,6 +62,29 @@ function averangeHours(list){
     const hours =  obtainHours(list);
 
     return calculateAverage(hours);
+}
+
+function calculateTop10(list){
+    const sortList = list.sort(order);
+
+    const spliceStart = Math.floor((sortList.length * (9)/10));
+    const spliceCount = sortList.length - spliceStart;
+
+    const listTop10 = sortList.splice(spliceStart,spliceCount);
+
+    return listTop10;
+}
+
+function hoursQuote(list,minHours){
+    const notComply = list.filter(
+        function (list){
+            const hours = list.hours;
+
+            return (hours < minHours);
+        }
+    );
+
+    return notComply;
 }
 
 //Example
