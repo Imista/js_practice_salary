@@ -41,6 +41,15 @@ main{
     /*Text*/
     font-size: var(--sm);
 }
+.button{
+    height: 2em;
+    box-sizing: border-box;
+    border: 1px solid black;
+    border-radius: 8px;
+    /*Text*/
+    font-weight: bold;
+    font-size: var(--sm);
+}
 .data{
     /*Display*/
     display: flex;
@@ -75,6 +84,9 @@ main{
     /*Box*/
     width: 80%;
     margin-bottom: 12px;
+}
+.data_mainData_form_button{
+    width: 80%;
 }
 /*Workers---------------------------------*/
 .data_workers{
@@ -119,6 +131,33 @@ main{
 .data_workers_buttons_reset{
     display: inline;
     flex-basis: 47.5%
+}
+.data_workers_text{
+    font-size: var(--sm);
+}
+/*Result*/
+.result{
+    /*Box*/
+    width: 100%;
+    /*Display*/
+    display: flex;
+    justify-content: center;
+}
+.result div{
+    display: none;
+    /*Box*/
+    width: 40%;
+    padding: 12px;
+    border: 1px solid black;
+    border-radius: 12px;
+    margin: 16px;
+}
+.result div.visible{
+    display: block;
+}
+.result_paragrah{
+    /*Text*/
+    font-size: var(--md);
 }
 /*End Main*/
 

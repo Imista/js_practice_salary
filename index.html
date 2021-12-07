@@ -19,11 +19,12 @@
         <div class="data">
 
             <div class="data_mainData">
+                <h1>Pay data</h1>
                 <form class="data_mainData_form">
                     <input type="number" class="data_mainData_form_hours input" placeholder="$$$ per hour" id="payHour">
                     <input type="number" class="data_mainData_form_minHours input" placeholder="Hours quota" id="minHours">
                     <input type="number" class="data_mainData_form_bonus input" placeholder="Bonus per extra hours (Optional)" id="bonus">
-                    <button type="button" onclick="calculateData()">Calculate</button>
+                    <button type="button" class="button bt1 data_mainData_form_button" onclick="calculateData()">Calculate</button>
                 </form>
             </div>
 
@@ -50,9 +51,11 @@
             </form>
         </div>    
         <div class="result">
-            <p class="result_total" id="total"></p>
-            <p class="result_averange" id="averange"></p>
-            <p class="result_noQuota" id="noQuota"></p>
+            <div id="resultBlock">
+                <p class="result_total result_paragrah" id="total"></p>
+                <p class="result_averange result_paragrah" id="averange"></p>
+                <p class="result_noQuota result_paragrah" id="noQuota"></p>
+            </div>
         </div>
     </main>
     <footer>

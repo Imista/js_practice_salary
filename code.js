@@ -135,13 +135,15 @@ function resetWorker(){
     //Inputs
     const inputForm = document.getElementById("workerForm");
     const inputText = document.getElementById("showWorkers");
+    const resultBlock = document.getElementById("resultBlock");
     
     //Restar array
     restarArray(workers);
     inputText.innerText = "";
-
+    
     //Final
     inputForm.reset();
+    resultBlock.classList.remove("visible");
 
 }
 
@@ -154,6 +156,8 @@ function calculateData(){
     const inputTotal = document.getElementById("total");
     const inputAverange = document.getElementById("averange");
     const inputNoQuota = document.getElementById("noQuota");
+
+    const resultBlock = document.getElementById("resultBlock");
 
     //Values
     const valuePayHours = parseInt(inputPayHours.value);
@@ -168,23 +172,28 @@ function calculateData(){
         }else
             total = totalToPay(workers,valueMinHours,valuePayHours,valueBonus);
 
-        inputTotal.innerText = (`The total to pay is: ${total}`);
+        inputTotal.innerText = (`The total to pay is: $${total}`);
         //Averange
         const averangeHoursValue = averangeHours(workers);
 
         inputAverange.innerText = (`Averange of hours worked: ${averangeHoursValue}`);
         //Not Comply
         const workerNotComply = hoursQuote(workers,valueMinHours);
-        const textNotComply = workerNotComply.map(
-            function (element){
-                const paragraph = `${element.name} worked ${element.hours} hours`;
-    
-                return paragraph
-            }
-        );
-        const printNotComply = textNotComply.reduce(obtainText,"");
+        if(workerNotComply.length > 0){
+            const textNotComply = workerNotComply.map(
+                function (element){
+                    const paragraph = `${element.name} worked ${element.hours} hours\n`;
         
-        inputNoQuota.innerText = printNotComply;
+                    return paragraph
+                }
+            );
+            const printNotComply = (`These workers did not comply with the minimum hours:\n`) + textNotComply.reduce(obtainText,"");
+            
+            inputNoQuota.innerText = printNotComply;
+
+        }
+
+        resultBlock.classList.add("visible");
 
     }else
         alert("Complete the data");
