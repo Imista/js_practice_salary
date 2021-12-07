@@ -1,3 +1,4 @@
+console.log("a");
 //Helpers
 const workers = [];
 
