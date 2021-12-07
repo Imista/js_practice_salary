@@ -20,20 +20,20 @@
 
             <div class="data_mainData">
                 <form class="data_mainData_form">
-                    <input type="number" class="data_mainData_form_hours input" placeholder="$$$ per hour">
-                    <input type="number" class="data_mainData_form_minHours input" placeholder="Hours quota">
-                    <input type="number" class="data_mainData_form_bonus input" placeholder="Bonus per extra hours (Optional)">
-                    <button type="button">Calculate</button>
+                    <input type="number" class="data_mainData_form_hours input" placeholder="$$$ per hour" id="payHour">
+                    <input type="number" class="data_mainData_form_minHours input" placeholder="Hours quota" id="minHours">
+                    <input type="number" class="data_mainData_form_bonus input" placeholder="Bonus per extra hours (Optional)" id="bonus">
+                    <button type="button" onclick="calculateData()">Calculate</button>
                 </form>
             </div>
 
-            <form class="data_workers">
+            <form class="data_workers" id="workerForm">
                 <h1>Worker</h1>
 
                 <div class="data_workers_inputs">
-                    <input type="text" class="data_workers_inputs_name input" placeholder="Enter worker name:">
-                    <input type="number" class="data_workers_inputs_hours input" placeholder="Hours">
-                    <select class="data_workers_inputs_sex input" id="">
+                    <input type="text" class="data_workers_inputs_name input" placeholder="Enter worker name:" id="name">
+                    <input type="number" class="data_workers_inputs_hours input" placeholder="Hours" id="hours">
+                    <select class="data_workers_inputs_sex input" id="sex">
                         <option value="0">Sex</option>
                         <option value="1">Male</option>
                         <option value="2">Female</option>
@@ -42,17 +42,17 @@
                 </div>
 
                 <div class="data_workers_buttons">
-                    <button type="button" class="button bt1 data_workers_buttons_add">Add</button>
-                    <button type="button" class="button bt2 data_workers_buttons_reset">Reset</button>
+                    <button type="button" class="button bt1 data_workers_buttons_add" onclick="addWorker()">Add</button>
+                    <button type="button" class="button bt2 data_workers_buttons_reset" onclick="resetWorker()">Reset</button>
                 </div>
 
+                <p class="data_workers_text" id="showWorkers"></p>
             </form>
         </div>    
         <div class="result">
-            <p class="result_total"></p>
-            <p class="result_averange"></p>
-            <p class="result_top10"></p>
-            <p class="result_noQuota"></p>
+            <p class="result_total" id="total"></p>
+            <p class="result_averange" id="averange"></p>
+            <p class="result_noQuota" id="noQuota"></p>
         </div>
     </main>
     <footer>
