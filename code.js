@@ -1,4 +1,3 @@
-console.log("a");
 //Helpers
 const workers = [];
 
@@ -26,6 +25,7 @@ function writeText(list){
     //Return
     return text;
 }
+
 
 function obtainText(text,element){
     return (text + element);
@@ -117,17 +117,46 @@ function addWorker() {
         });
     
         //Write text
-        const basicText = writeText(workers);
-        const printText = basicText.reduce(obtainText,"");
-    
-        inputText.innerText = printText;
-    
+        const contentDiv = document.querySelector(".data_workers_texts_list");
+        const listElement = document.createElement("li");
+
+        const imgElement = document.createElement("img");
+        imgElement.setAttribute("src","src/person.svg");
+        
+        const pElement = document.createElement("p");
+        pElement.innerText = `${nameValue} with ${hoursValue} hours worked`
+        
+        const buttonElement = document.createElement("button");
+        const buttonImg = document.createElement("img");
+        buttonImg.setAttribute("src","src/close.svg");
+
+        buttonElement.setAttribute("type","button");
+        buttonElement.addEventListener('click',() =>{
+            contentDiv.removeChild(listElement);
+        });
+
+        contentDiv.appendChild(listElement);
+        listElement.appendChild(imgElement);
+        listElement.appendChild(pElement);
+        listElement.appendChild(buttonElement);
+        buttonElement.appendChild(buttonImg);
+
         //Final
         inputForm.reset();
     }else
         alert("Complete the data");
 
 }
+
+{/* <div class="data_workers_texts">
+    <ul class="data_workers_texts_list">
+        <li>
+            <img src="src/person.svg" alt="">
+            <p>Benjamin Rodriguez with 4 hours worked</p>
+            <button><img src="src/close.svg" alt="Close"></button>
+        </li>
+    </ul>
+</div> */}
 
 function resetWorker(){
     //Inputs
